@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- EDITAR: nombre real del negocio en title y description -->
+<title>AMARA — Moda Mujer | Vestidos, Abrigos, Denim y Fiesta</title>
+<meta name="description" content="Local de moda femenina: vestidos, abrigos, denim y línea fiesta. Nueva temporada, guía de talles, cuotas sin interés y asesoramiento por chat las 24 horas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Editorial de moda: hueso + negro + carmín */
+  --hueso:#f7f4ee;
+  --blanco:#ffffff;
+  --negro:#161311;
+  --topo:#8b8378;
+  --carmin:#a61e3c;
+  --linea:#e6e0d6;
+  --arena:#efe9df;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;font-weight:300;color:var(--negro);background:var(--hueso);line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.06}
+h1 em,h2 em{font-style:italic;color:var(--carmin)}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+.etiqueta{font-size:.68rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase}
+
+/* ===== Barra de anuncios ===== */
+.anuncio{background:var(--negro);color:var(--hueso);text-align:center;padding:9px 16px;font-size:.72rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase}
+.anuncio b{color:#e7b6c1;font-weight:500}
+
+/* ===== Header ===== */
+header{position:sticky;top:0;z-index:300;background:rgba(247,244,238,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:30px;height:78px}
+.logo{text-decoration:none;flex:0 0 auto;line-height:1}
+.logo b{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:2rem;letter-spacing:.24em;color:var(--negro)}
+.logo small{display:block;font-size:.56rem;font-weight:400;letter-spacing:.4em;text-transform:uppercase;color:var(--topo);margin-top:2px}
+.nav ul{display:flex;gap:clamp(16px,2vw,32px);list-style:none;flex:1;justify-content:center}
+.nav ul a{text-decoration:none;font-size:.78rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--negro);white-space:nowrap;padding-bottom:3px;border-bottom:1px solid transparent;transition:border-color .2s}
+.nav ul a:hover{border-color:var(--carmin)}
+.nav ul .solo-movil{display:none}
+.nav-wa{flex:0 0 auto;text-decoration:none;font-size:.76rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--negro);border-bottom:1px solid var(--negro);padding-bottom:3px;white-space:nowrap;transition:color .2s,border-color .2s}
+.nav-wa:hover{color:var(--carmin);border-color:var(--carmin)}
+.burger{display:none;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--negro)}
+@media (max-width:1080px){
+  .nav ul{display:none;position:absolute;top:78px;left:0;right:0;background:var(--hueso);flex-direction:column;gap:0;padding:14px 28px 22px;border-bottom:1px solid var(--linea)}
+  .nav ul.abierto{display:flex}
+  .nav ul li{padding:13px 0;border-bottom:1px solid var(--linea)}
+  .nav ul li:last-child{border-bottom:none}
+  .nav ul a{font-size:.9rem}
+  .burger{display:block}
+}
+
+/* ===== HERO editorial asimétrico ===== */
+.hero{position:relative;padding:70px 0 100px;overflow:hidden}
+.hero-palabra{position:absolute;top:34px;left:-10px;right:0;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(5rem,15vw,13rem);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(22,19,17,.1);letter-spacing:.06em;white-space:nowrap;pointer-events:none;user-select:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:0;align-items:center}
+.hero-texto{position:relative;z-index:3;padding-right:0;margin-right:-90px}
+.hero-texto .etiqueta{color:var(--carmin);display:block;margin-bottom:22px}
+.hero-texto h1{font-size:clamp(3rem,6.4vw,5.4rem);margin-bottom:24px}
+.hero-texto p{font-size:1.05rem;color:var(--topo);max-width:26rem;margin-bottom:36px;font-weight:300}
+.hero-btns{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.btn-negro{display:inline-block;text-decoration:none;background:var(--negro);color:var(--hueso);font-size:.78rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;padding:18px 38px;transition:background .25s}
+.btn-negro:hover{background:var(--carmin)}
+.link-sub{text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid var(--negro);padding-bottom:4px;transition:color .2s,border-color .2s}
+.link-sub:hover{color:var(--carmin);border-color:var(--carmin)}
+.hero-foto{position:relative;z-index:2}
+.hero-foto img{width:100%;aspect-ratio:3/3.9;object-fit:cover}
+.hero-mini{position:absolute;left:0;bottom:-56px;width:220px;z-index:4;box-shadow:0 24px 60px rgba(22,19,17,.18)}
+.hero-mini img{aspect-ratio:1/1.15;object-fit:cover}
+.hero-mini figcaption{background:var(--blanco);padding:10px 14px;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--topo)}
+.hero-vert{position:absolute;right:-6px;top:50%;transform:rotate(90deg) translateX(-50%);transform-origin:right top;font-size:.64rem;letter-spacing:.4em;text-transform:uppercase;color:var(--topo);white-space:nowrap;z-index:4}
+
+/* ===== Franja de beneficios ===== */
+.beneficios{border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);background:var(--blanco)}
+.bene-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.bene{padding:26px 20px;text-align:center;border-left:1px solid var(--linea)}
+.bene:first-child{border-left:none}
+.bene b{display:block;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.15rem;margin-bottom:3px}
+.bene span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--topo)}
+
+/* ===== Secciones ===== */
+section{padding:96px 0}
+.enc{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:54px;flex-wrap:wrap}
+.enc .etiqueta{color:var(--carmin);display:block;margin-bottom:14px}
+.enc h2{font-size:clamp(2.2rem,4.4vw,3.4rem)}
+.enc p{color:var(--topo);max-width:30rem;font-weight:300}
+
+/* ===== Categorías editoriales ===== */
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cat{position:relative;text-decoration:none;overflow:hidden;display:block}
+.cat figure{overflow:hidden}
+.cat img{width:100%;aspect-ratio:3/4.1;object-fit:cover;transition:transform .6s ease;filter:saturate(.92)}
+.cat:hover img{transform:scale(1.05)}
+.cat .num{position:absolute;top:14px;left:14px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:#fff;background:rgba(22,19,17,.55);padding:3px 11px;letter-spacing:.06em}
+.cat-pie{display:flex;align-items:baseline;justify-content:space-between;padding:16px 2px 0}
+.cat-pie b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.5rem}
+.cat-pie span{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--carmin)}
+
+/* ===== Lookbook horizontal ===== */
+.lookbook{background:var(--blanco);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+.look-strip{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 22px;-webkit-overflow-scrolling:touch}
+.look-strip::-webkit-scrollbar{height:5px}
+.look-strip::-webkit-scrollbar-track{background:var(--arena)}
+.look-strip::-webkit-scrollbar-thumb{background:var(--negro)}
+.look{flex:0 0 min(320px,78vw);scroll-snap-align:start}
+.look figure{overflow:hidden}
+.look img{width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform .5s ease}
+.look:hover img{transform:scale(1.04)}
+.look-pie{padding:14px 2px 0;display:flex;justify-content:space-between;align-items:baseline}
+.look-pie b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.2rem}
+.look-pie span{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--topo)}
+.look-hint{text-align:right;font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--topo);margin-top:6px}
+
+/* ===== Guía de talles (firma) ===== */
+.talles-caja{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.pills{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--linea)}
+.pill{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:500;text-align:left;background:none;border:none;border-bottom:1px solid var(--linea);padding:20px 6px;cursor:pointer;color:var(--topo);display:flex;justify-content:space-between;align-items:center;transition:color .2s,padding-left .25s}
+.pill:hover{color:var(--negro)}
+.pill.act{color:var(--negro);padding-left:16px}
+.pill .fl{font-size:1rem;color:var(--carmin);opacity:0;transition:opacity .2s}
+.pill.act .fl{opacity:1}
+.talles-nota{margin-top:26px;font-size:.86rem;color:var(--topo)}
+.tabla{background:var(--blanco);border:1px solid var(--linea);padding:34px;overflow-x:auto}
+.tabla h3{font-size:1.6rem;margin-bottom:20px}
+table{width:100%;border-collapse:collapse}
+th{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--topo);text-align:left;padding:10px 8px;border-bottom:1px solid var(--negro)}
+td{font-size:.9rem;font-weight:300;padding:12px 8px;border-bottom:1px solid var(--linea)}
+td:first-child{font-weight:500;letter-spacing:.08em}
+.tabla p{margin-top:18px;font-size:.82rem;color:var(--topo)}
+.tabla p b{color:var(--carmin);font-weight:500}
+
+/* ===== Reseñas ===== */
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:44px}
+.res{border-top:1px solid var(--negro);padding-top:24px}
+.res p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;line-height:1.4;margin-bottom:18px}
+.res b{font-size:.76rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;display:block}
+.res span{font-size:.7rem;color:var(--topo);letter-spacing:.08em}
+
+/* ===== Instagram ===== */
+.insta{background:var(--blanco);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+.insta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.insta-grid a{overflow:hidden;display:block}
+.insta-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform .5s ease,filter .3s}
+.insta-grid a:hover img{transform:scale(1.06);filter:brightness(.85)}
+
+/* ===== FAQ ===== */
+.faq-item{border-bottom:1px solid var(--linea)}
+.faq-item:first-of-type{border-top:1px solid var(--linea)}
+.faq-item button{width:100%;text-align:left;background:none;border:none;font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--negro);padding:24px 56px 24px 4px;cursor:pointer;position:relative}
+.faq-item button::after{content:'+';position:absolute;right:10px;top:50%;transform:translateY(-50%);font-family:'Jost',sans-serif;font-size:1.4rem;font-weight:300;color:var(--carmin);transition:transform .25s}
+.faq-item.abierta button::after{transform:translateY(-50%) rotate(45deg)}
+.faq-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-body p{padding:0 4px 24px;font-size:.92rem;color:var(--topo);max-width:44rem;font-weight:300}
+.faq-item.abierta .faq-body{max-height:240px}
+
+/* ===== Visitanos ===== */
+.visita-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.v-fila{display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--linea)}
+.v-fila:first-of-type{border-top:1px solid var(--linea)}
+.v-fila b{font-size:.66rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--topo);flex:0 0 120px;padding-top:5px}
+.v-fila div{font-weight:300}
+.mapa{border:1px solid var(--linea);background:var(--blanco);min-height:320px;display:flex;align-items:center;justify-content:center;color:var(--topo);font-size:.9rem;text-align:center;padding:20px;font-weight:300}
+
+/* ===== CTA final ===== */
+.cta-final{background:var(--negro);color:var(--hueso);text-align:center;padding:110px 24px}
+.cta-final .etiqueta{color:#e7b6c1;display:block;margin-bottom:18px}
+.cta-final h2{font-size:clamp(2.4rem,5vw,4rem);margin-bottom:18px;color:var(--hueso)}
+.cta-final h2 em{color:#e7b6c1}
+.cta-final p{color:rgba(247,244,238,.6);max-width:32rem;margin:0 auto 40px;font-weight:300}
+.cta-final .btn-negro{background:var(--hueso);color:var(--negro)}
+.cta-final .btn-negro:hover{background:var(--carmin);color:var(--hueso)}
+
+/* ===== Footer ===== */
+footer{background:var(--negro);color:rgba(247,244,238,.5);border-top:1px solid rgba(247,244,238,.12);padding:32px 0;font-size:.8rem;font-weight:300}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+footer a{color:#e7b6c1;text-decoration:none}
+
+/* ===== Chat ===== */
+#chat-boton{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:var(--negro);color:var(--hueso);border:1px solid rgba(247,244,238,.2);font-size:1.4rem;cursor:pointer;box-shadow:0 14px 36px rgba(22,19,17,.35);z-index:900;transition:transform .15s,background .2s}
+#chat-boton:hover{transform:scale(1.07);background:var(--carmin)}
+#chat-panel{position:fixed;bottom:98px;right:24px;width:min(375px,calc(100vw - 32px));height:530px;max-height:calc(100vh - 130px);background:var(--hueso);box-shadow:0 26px 70px rgba(22,19,17,.35);display:none;flex-direction:column;overflow:hidden;z-index:901;border:1px solid var(--linea)}
+#chat-panel.abierto{display:flex}
+.chat-top{background:var(--negro);color:var(--hueso);padding:17px 19px}
+.chat-top b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.2rem;letter-spacing:.06em}
+.chat-top span{display:block;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#e7b6c1}
+#chat-mensajes{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:85%;padding:11px 15px;font-size:.89rem;font-weight:300;line-height:1.5;white-space:pre-wrap;word-wrap:break-word}
+.msg.bot{background:var(--blanco);border:1px solid var(--linea);align-self:flex-start}
+.msg.usuario{background:var(--negro);color:var(--hueso);align-self:flex-end}
+.msg.escribiendo{color:var(--topo);font-style:italic;background:var(--blanco);border:1px solid var(--linea);align-self:flex-start}
+.chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--linea);background:var(--blanco)}
+.chat-form input{flex:1;border:1px solid var(--linea);background:var(--hueso);padding:12px 14px;font-size:.9rem;font-family:'Jost',sans-serif;font-weight:300;outline:none;color:var(--negro)}
+.chat-form input:focus{border-color:var(--negro)}
+.chat-form button{background:var(--negro);color:var(--hueso);border:none;padding:0 18px;font-size:1rem;cursor:pointer}
+.chat-form button:hover{background:var(--carmin)}
+
+/* ===== Responsive ===== */
+@media (max-width:940px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-texto{margin-right:0;margin-bottom:40px}
+  .hero-mini{position:static;width:100%;max-width:280px;margin:20px auto 0;box-shadow:none}
+  .hero-vert{display:none}
+  .hero{padding-bottom:70px}
+  .bene-grid{grid-template-columns:1fr 1fr}
+  .bene{border-left:none;border-top:1px solid var(--linea)}
+  .cats{grid-template-columns:1fr 1fr}
+  .talles-caja,.visita-grid{grid-template-columns:1fr;gap:36px}
+  .res-grid{grid-template-columns:1fr;gap:30px}
+  .insta-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .nav-wa{display:none}
+  .nav ul .solo-movil{display:block}
+  .nav ul .solo-movil a{color:var(--carmin)}
+  .anuncio{font-size:.6rem;letter-spacing:.1em;line-height:1.6;padding:8px 14px}
+  .etiqueta{letter-spacing:.2em;font-size:.64rem}
+  .hero{padding-top:44px}
+  /* la palabra gigante de fondo no entra en el celular: afuera */
+  .hero-palabra{display:none}
+  .hero-texto{text-align:center}
+  .hero-texto h1{font-size:2.5rem}
+  .hero-texto p{margin-left:auto;margin-right:auto;font-size:.98rem}
+  .hero-btns{justify-content:center;gap:18px}
+  .btn-negro{width:100%;text-align:center;max-width:320px}
+  .hero-mini figcaption{text-align:center;letter-spacing:.14em}
+  .enc{flex-direction:column;align-items:center;text-align:center;gap:14px;margin-bottom:40px}
+  .enc h2{font-size:2.1rem}
+  .enc p{max-width:100%}
+  .cats{grid-template-columns:1fr}
+  .cat-pie b{font-size:1.35rem}
+  .bene{padding:20px 14px}
+  .bene b{font-size:1.05rem}
+  .bene span{letter-spacing:.08em;font-size:.66rem}
+  section{padding:64px 0}
+  .tabla{padding:22px 14px}
+  .tabla h3{text-align:center}
+  th{font-size:.6rem;letter-spacing:.08em;padding:9px 6px}
+  td{font-size:.84rem;padding:10px 6px}
+  .tabla p{text-align:center}
+  .talles-nota{text-align:center}
+  .pill{font-size:1.2rem;padding:17px 4px}
+  .pill.act{padding-left:12px}
+  .res p{font-size:1.15rem}
+  .res{text-align:center;border-top-width:1px}
+  .res b,.res span{display:block}
+  .look-hint{text-align:center}
+  .look-pie{flex-direction:column;gap:2px;align-items:center;text-align:center}
+  .v-fila{flex-direction:column;gap:4px;text-align:center}
+  .v-fila b{flex:none}
+  .cta-final{padding:80px 20px}
+  .cta-final h2{font-size:2.2rem}
+  .foot{justify-content:center;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- EDITAR: promos reales de la barra -->
+<div class="anuncio">3 y 6 cuotas sin interés · <b>Envío gratis desde $[EDITAR]</b> · Cambios sin vueltas</div>
+
+<header>
+  <div class="wrap nav">
+    <!-- EDITAR: nombre del negocio -->
+    <a class="logo" href="#"><b>AMARA</b><small>Moda Mujer</small></a>
+    <button class="burger" id="burger" aria-label="Menú">☰</button>
+    <ul id="menu">
+      <li><a href="#categorias">Colección</a></li>
+      <li><a href="#lookbook">Lookbook</a></li>
+      <li><a href="#talles">Guía de talles</a></li>
+      <li><a href="#resenas">Reseñas</a></li>
+      <li><a href="#faq">Preguntas</a></li>
+      <li><a href="#visitanos">El local</a></li>
+      <li class="solo-movil"><a href="https://wa.me/5491100000000?text=Hola,%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener">Escribinos por WhatsApp →</a></li>
+    </ul>
+    <!-- EDITAR: número de WhatsApp real (formato 549 + área + número, sin espacios) -->
+    <a class="nav-wa" href="https://wa.me/5491100000000?text=Hola,%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</header>
+
+<!-- ================= HERO EDITORIAL ================= -->
+<section class="hero" style="padding-top:70px">
+  <div class="wrap" style="position:relative">
+    <div class="hero-palabra" aria-hidden="true">TEMPORADA</div>
+    <div class="hero-grid">
+      <div class="hero-texto">
+        <!-- EDITAR: temporada y titular -->
+        <span class="etiqueta">Otoño — Invierno · Nueva colección</span>
+        <h1>Vestite como <em>te querés</em> sentir.</h1>
+        <p>Vestidos, abrigos, denim y fiesta. Curaduría real, talles del XS al XXL y una asesora disponible las 24 horas en el chat.</p>
+        <div class="hero-btns">
+          <a class="btn-negro" href="#categorias">Ver la colección</a>
+          <a class="link-sub" href="#talles">Guía de talles</a>
+        </div>
+      </div>
+      <figure class="hero-foto">
+        <img src="https://images.pexels.com/photos/26998033/pexels-photo-26998033.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Mujer con vestido elegante de la nueva colección">
+      </figure>
+      <figure class="hero-mini">
+        <img src="https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Percheros con prendas de la colección">
+        <figcaption>El local · nueva entrega</figcaption>
+      </figure>
+      <span class="hero-vert">AMARA · desde [EDITAR: año]</span>
+    </div>
+  </div>
+</section>
+
+<!-- franja de beneficios — EDITAR: beneficios reales -->
+<div class="beneficios">
+  <div class="wrap bene-grid">
+    <div class="bene"><b>Cuotas sin interés</b><span>3 y 6 con tarjeta</span></div>
+    <div class="bene"><b>Cambios fáciles</b><span>30 días con ticket</span></div>
+    <div class="bene"><b>Envíos a todo el país</b><span>gratis desde $[EDITAR]</span></div>
+    <div class="bene"><b>Talles XS al XXL</b><span>curva completa real</span></div>
+  </div>
+</div>
+
+<!-- ================= CATEGORÍAS ================= -->
+<section id="categorias">
+  <div class="wrap">
+    <div class="enc">
+      <div>
+        <span class="etiqueta">La colección</span>
+        <h2>Comprá por <em>categoría</em></h2>
+      </div>
+      <p>Cada prenda se elige mirando calce, tela y percha. Si algo no nos encanta puesto, no entra al local.</p>
+    </div>
+    <div class="cats">
+      <!-- EDITAR: categorías y fotos según el local -->
+      <a class="cat" href="https://wa.me/5491100000000?text=Hola,%20quiero%20ver%20vestidos" target="_blank" rel="noopener">
+        <figure><span class="num">01</span><img src="https://images.pexels.com/photos/30736117/pexels-photo-30736117.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Vestido blanco elegante"></figure>
+        <div class="cat-pie"><b>Vestidos</b><span>Ver →</span></div>
+      </a>
+      <a class="cat" href="https://wa.me/5491100000000?text=Hola,%20quiero%20ver%20abrigos" target="_blank" rel="noopener">
+        <figure><span class="num">02</span><img src="https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Mujer con tapado de invierno"></figure>
+        <div class="cat-pie"><b>Abrigos</b><span>Ver →</span></div>
+      </a>
+      <a class="cat" href="https://wa.me/5491100000000?text=Hola,%20quiero%20ver%20denim%20y%20casual" target="_blank" rel="noopener">
+        <figure><span class="num">03</span><img src="https://images.pexels.com/photos/1381556/pexels-photo-1381556.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Look casual con denim"></figure>
+        <div class="cat-pie"><b>Denim & casual</b><span>Ver →</span></div>
+      </a>
+      <a class="cat" href="https://wa.me/5491100000000?text=Hola,%20quiero%20ver%20la%20l%C3%ADnea%20fiesta" target="_blank" rel="noopener">
+        <figure><span class="num">04</span><img src="https://images.pexels.com/photos/972995/pexels-photo-972995.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Look de fiesta"></figure>
+        <div class="cat-pie"><b>Fiesta</b><span>Ver →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOOKBOOK ================= -->
+<section class="lookbook" id="lookbook">
+  <div class="wrap">
+    <div class="enc">
+      <div>
+        <span class="etiqueta">Inspiración</span>
+        <h2>Los looks de <em>la semana</em></h2>
+      </div>
+      <p>Armados por nosotras con prendas del local. Pedí el look completo por WhatsApp con el número de referencia.</p>
+    </div>
+    <div class="look-strip">
+      <!-- EDITAR: looks y fotos reales del local -->
+      <div class="look"><figure><img src="https://images.pexels.com/photos/6311392/pexels-photo-6311392.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Look casual en el probador"></figure><div class="look-pie"><b>Look Nº 01</b><span>Casual día</span></div></div>
+      <div class="look"><figure><img src="https://images.pexels.com/photos/8400220/pexels-photo-8400220.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Look con campera de cuero"></figure><div class="look-pie"><b>Look Nº 02</b><span>Noche urbana</span></div></div>
+      <div class="look"><figure><img src="https://images.pexels.com/photos/985635/pexels-photo-985635.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Look de compras con bolsas"></figure><div class="look-pie"><b>Look Nº 03</b><span>Street</span></div></div>
+      <div class="look"><figure><img src="https://images.pexels.com/photos/1884581/pexels-photo-1884581.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Recorrida por el local"></figure><div class="look-pie"><b>El local</b><span>Pasá a probarte</span></div></div>
+    </div>
+    <p class="look-hint">Deslizá para ver más →</p>
+  </div>
+</section>
+<!-- ================= GUÍA DE TALLES (firma) ================= -->
+<section id="talles">
+  <div class="wrap">
+    <div class="enc">
+      <div>
+        <span class="etiqueta">La duda de siempre</span>
+        <h2>Guía de <em>talles</em></h2>
+      </div>
+      <p>Medí una prenda tuya que te quede bien y compará con la tabla. Si quedás entre dos talles, escribile al chat con tus medidas y te decimos cuál va.</p>
+    </div>
+    <div class="talles-caja">
+      <div>
+        <div class="pills" id="pills-prenda">
+          <button class="pill act" data-prenda="tops" type="button">Remeras y tops <span class="fl">→</span></button>
+          <button class="pill" data-prenda="jeans" type="button">Jeans y pantalones <span class="fl">→</span></button>
+          <button class="pill" data-prenda="vestidos" type="button">Vestidos <span class="fl">→</span></button>
+        </div>
+        <p class="talles-nota">Las medidas son de la prenda extendida, en centímetros. Pueden variar ±2 cm según el modelo.</p>
+      </div>
+      <div class="tabla">
+        <h3 id="tb-titulo"></h3>
+        <table>
+          <thead id="tb-head"></thead>
+          <tbody id="tb-body"></tbody>
+        </table>
+        <p><b>¿Entre dos talles?</b> Elegí el más grande o consultá al chat con tus medidas: te contestamos al instante, a cualquier hora.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESEÑAS ================= -->
+<section id="resenas" style="padding-top:0">
+  <div class="wrap">
+    <div class="enc">
+      <div>
+        <span class="etiqueta">Reseñas</span>
+        <h2>Qué dicen <em>las clientas</em></h2>
+      </div>
+    </div>
+    <!-- EDITAR ⚠️ RESEÑAS FICTICIAS DE DEMO: reemplazar por reseñas reales antes de publicar. NUNCA dejar en producción. -->
+    <div class="res-grid">
+      <div class="res"><p>"Les mandé mis medidas por el chat un domingo a la noche y me guardaron el talle justo. El vestido me quedó pintado."</p><b>Camila R.</b><span>Vestidos · Demo</span></div>
+      <div class="res"><p>"Tienen curva de talles de verdad, no de mentira. Encontré jeans que me calzan perfecto después de años."</p><b>Florencia D.</b><span>Denim · Demo</span></div>
+      <div class="res"><p>"Compré el look completo de la vidriera por WhatsApp y me llegó al día siguiente. Impecable todo."</p><b>Anahí S.</b><span>Envíos · Demo</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INSTAGRAM ================= -->
+<section class="insta">
+  <div class="wrap">
+    <div class="enc">
+      <div>
+        <span class="etiqueta">Seguinos</span>
+        <!-- EDITAR: usuario real de Instagram del local -->
+        <h2>@[EDITAR] en <em>Instagram</em></h2>
+      </div>
+      <p>Novedades, reposiciones y los looks del día, primero en Instagram.</p>
+    </div>
+    <div class="insta-grid">
+      <!-- EDITAR: enlazar al Instagram real y usar fotos propias -->
+      <a href="https://instagram.com/EDITAR" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/30736117/pexels-photo-30736117.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Publicación de Instagram 1"></a>
+      <a href="https://instagram.com/EDITAR" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Publicación de Instagram 2"></a>
+      <a href="https://instagram.com/EDITAR" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/985635/pexels-photo-985635.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Publicación de Instagram 3"></a>
+      <a href="https://instagram.com/EDITAR" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/8400220/pexels-photo-8400220.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Publicación de Instagram 4"></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <div class="wrap" style="max-width:860px">
+    <div class="enc">
+      <div>
+        <span class="etiqueta">Preguntas frecuentes</span>
+        <h2>Antes de comprar, <em>leé esto</em></h2>
+      </div>
+    </div>
+    <!-- EDITAR: políticas reales del local -->
+    <div class="faq-item"><button type="button">¿Cómo son los cambios?</button><div class="faq-body"><p>Tenés 30 días desde la compra con el ticket, la prenda sin uso y con etiquetas. Los cambios de talle son sin cargo; si el producto llegó fallado, corren por nuestra cuenta ida y vuelta.</p></div></div>
+    <div class="faq-item"><button type="button">¿Qué hago si no sé mi talle?</button><div class="faq-body"><p>Usá la guía de talles de esta página: medí una prenda tuya que te quede bien y compará. Si quedás entre dos, escribile al chat con tus medidas y te recomendamos al instante.</p></div></div>
+    <div class="faq-item"><button type="button">¿Hacen envíos? ¿Cuánto tardan?</button><div class="faq-body"><p>Sí, a todo el país por correo y en el día en la zona. Gratis superando el mínimo de compra. Te pasamos el seguimiento por WhatsApp apenas despacha.</p></div></div>
+    <div class="faq-item"><button type="button">¿Puedo pagar en cuotas?</button><div class="faq-body"><p>Sí: 3 y 6 cuotas sin interés con tarjetas bancarias, y también transferencia, efectivo y billeteras virtuales con descuento. Consultá las promos vigentes del mes.</p></div></div>
+    <div class="faq-item"><button type="button">¿Venden por mayor?</button><div class="faq-body"><p>Sí, tenemos lista mayorista con mínimo de compra para revendedoras y locales del interior. Pedila por WhatsApp y te la mandamos con el catálogo de la temporada.</p></div></div>
+  </div>
+</section>
+
+<!-- ================= VISITANOS ================= -->
+<section id="visitanos" style="padding-top:0">
+  <div class="wrap">
+    <div class="enc">
+      <div>
+        <span class="etiqueta">El local</span>
+        <h2>Vení a <em>probarte</em></h2>
+      </div>
+    </div>
+    <div class="visita-grid">
+      <div>
+        <!-- EDITAR: datos reales -->
+        <div class="v-fila"><b>Dirección</b><div>Av. [EDITAR] 1234, [EDITAR: Localidad], Buenos Aires</div></div>
+        <div class="v-fila"><b>Horarios</b><div>Lunes a sábados de 10 a 20 hs · Domingos de 14 a 19 hs</div></div>
+        <div class="v-fila"><b>WhatsApp</b><div>11 [EDITAR] — pedidos, talles y envíos</div></div>
+        <div class="v-fila"><b>Instagram</b><div>@[EDITAR] — novedades todos los días</div></div>
+      </div>
+      <!-- EDITAR: reemplazar por iframe de Google Maps -->
+      <div class="mapa">📍 Acá va el mapa de Google Maps<br>con la ubicación real del local</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<div class="cta-final">
+  <span class="etiqueta">Nueva temporada</span>
+  <h2>Tu próximo look <em>ya llegó</em>.</h2>
+  <p>Escribinos por WhatsApp o consultale a la asesora del chat: talles, precios, envíos y looks armados, a cualquier hora.</p>
+  <a class="btn-negro" href="https://wa.me/5491100000000?text=Hola,%20quiero%20ver%20la%20nueva%20colecci%C3%B3n" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <!-- EDITAR: nombre del negocio -->
+    <span>© 2026 AMARA — Moda Mujer. Todos los derechos reservados.</span>
+    <span>Sitio creado por <a href="https://instagram.com/flowbitai" target="_blank" rel="noopener">FlowbitAI</a></span>
+  </div>
+</footer>
+
+<!-- ================= CHAT ================= -->
+<button id="chat-boton" aria-label="Abrir chat">💬</button>
+<div id="chat-panel" role="dialog" aria-label="Chat de asistencia">
+  <div class="chat-top"><b>Asesora de AMARA</b><span>En línea 24/7 · responde al instante</span></div>
+  <div id="chat-mensajes"></div>
+  <form class="chat-form" id="chat-form">
+    <input id="chat-input" type="text" placeholder="Ej: ¿qué talle me recomendás si mido 1,60?" maxlength="500" autocomplete="off">
+    <button type="submit" aria-label="Enviar">➤</button>
+  </form>
+</div>
+
+<script>
+/* ===== Menú mobile ===== */
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('abierto'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('abierto')));
+
+/* ===== Guía de talles (firma) ===== */
+/* EDITAR: cargar las medidas reales de las prendas del local */
+const TALLES={
+  tops:{titulo:'Remeras y tops',cols:['Talle','Busto (cm)','Largo (cm)'],filas:[['XS','44','58'],['S','47','60'],['M','50','62'],['L','53','64'],['XL','56','66'],['XXL','60','68']]},
+  jeans:{titulo:'Jeans y pantalones',cols:['Talle','Cintura (cm)','Cadera (cm)','Largo (cm)'],filas:[['34','33','44','98'],['36','35','46','99'],['38','37','48','100'],['40','39','50','101'],['42','41','52','102'],['44','44','55','103']]},
+  vestidos:{titulo:'Vestidos',cols:['Talle','Busto (cm)','Cintura (cm)','Largo (cm)'],filas:[['XS','44','36','88'],['S','47','39','90'],['M','50','42','92'],['L','53','45','94'],['XL','56','48','96'],['XXL','60','52','98']]}
+};
+const tbTitulo=document.getElementById('tb-titulo'),tbHead=document.getElementById('tb-head'),tbBody=document.getElementById('tb-body');
+function pintarTalles(p){
+  const d=TALLES[p];
+  tbTitulo.textContent=d.titulo;
+  const trH=document.createElement('tr');
+  d.cols.forEach(c=>{const th=document.createElement('th');th.textContent=c;trH.appendChild(th);});
+  tbHead.replaceChildren(trH);
+  tbBody.replaceChildren(...d.filas.map(f=>{
+    const tr=document.createElement('tr');
+    f.forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.appendChild(td);});
+    return tr;
+  }));
+}
+document.querySelectorAll('#pills-prenda .pill').forEach(p=>p.addEventListener('click',()=>{
+  document.querySelectorAll('#pills-prenda .pill').forEach(x=>x.classList.remove('act'));
+  p.classList.add('act');pintarTalles(p.dataset.prenda);
+}));
+pintarTalles('tops');
+
+/* ===== FAQ acordeón ===== */
+document.querySelectorAll('.faq-item button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const item=b.parentElement,abierta=item.classList.contains('abierta');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('abierta'));
+    if(!abierta)item.classList.add('abierta');
+  });
+});
+
+/* ===== Chatbot ===== */
+const chatBoton=document.getElementById('chat-boton'),chatPanel=document.getElementById('chat-panel'),
+      chatForm=document.getElementById('chat-form'),chatInput=document.getElementById('chat-input'),
+      chatMensajes=document.getElementById('chat-mensajes');
+let historial=[]; // capado a 10 mensajes (5 idas y vueltas)
+let chatAbierto=false;
+
+chatBoton.addEventListener('click',()=>{
+  chatAbierto=!chatAbierto;
+  chatPanel.classList.toggle('abierto',chatAbierto);
+  chatBoton.textContent=chatAbierto?'✕':'💬';
+  if(chatAbierto&&chatMensajes.children.length===0){
+    agregarMensaje('bot','Hola, soy la asesora de AMARA, disponible las 24 hs. Contame qué buscás: un look para una ocasión, ayuda con tu talle o info de envíos y cambios.');
+  }
+  if(chatAbierto)chatInput.focus();
+});
+
+/* Render seguro: SIEMPRE textContent, nunca innerHTML */
+function agregarMensaje(tipo,texto){
+  const div=document.createElement('div');
+  div.className='msg '+tipo;
+  div.textContent=texto;
+  chatMensajes.appendChild(div);
+  chatMensajes.scrollTop=chatMensajes.scrollHeight;
+  return div;
+}
+
+chatForm.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const texto=chatInput.value.trim();
+  if(!texto)return;
+  chatInput.value='';
+  agregarMensaje('usuario',texto);
+  historial.push({role:'user',content:texto});
+  if(historial.length>10)historial=historial.slice(-10);
+  const espera=agregarMensaje('escribiendo','Escribiendo…');
+  try{
+    const res=await fetch('/.netlify/functions/chat',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({historial})
+    });
+    const data=await res.json();
+    espera.remove();
+    if(res.ok&&data.respuesta){
+      agregarMensaje('bot',data.respuesta);
+      historial.push({role:'assistant',content:data.respuesta});
+      if(historial.length>10)historial=historial.slice(-10);
+    }else{
+      agregarMensaje('bot',data.error||'Uy, tuve un problema. Probá de nuevo o escribinos por WhatsApp.');
+    }
+  }catch(err){
+    espera.remove();
+    agregarMensaje('bot','No pude conectarme. Revisá tu conexión o escribinos directo por WhatsApp.');
+  }
+});
+</script>
+</body>
+</html>
